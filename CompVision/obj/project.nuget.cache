@@ -1,0 +1,44 @@
+{
+  "version": 2,
+  "dgSpecHash": "rQlHhx4LVcKGD4n4n0mhOGrGrPXA2WxsZfM7yJFS854oPTF79j8Yvvgfzh5Ljw9m42ZeJcflGALtDwhTq5EG/w==",
+  "success": true,
+  "projectFilePath": "D:\\Programming\\CompVision\\CompVision\\CompVision.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ignps\\.nuget\\packages\\emgu.cv\\4.5.1.4349\\emgu.cv.4.5.1.4349.nupkg.sha512",
+    "C:\\Users\\ignps\\.nuget\\packages\\emgu.cv.bitmap\\4.5.1.4349\\emgu.cv.bitmap.4.5.1.4349.nupkg.sha512",
+    "C:\\Users\\ignps\\.nuget\\packages\\emgu.cv.runtime.windows\\4.8.1.5350\\emgu.cv.runtime.windows.4.8.1.5350.nupkg.sha512",
+    "C:\\Users\\ignps\\.nuget\\packages\\emgu.cv.ui\\4.5.1.4349\\emgu.cv.ui.4.5.1.4349.nupkg.sha512",
+    "C:\\Users\\ignps\\.nuget\\packages\\emgu.runtime.windows.msvc.rt.arm64\\19.37.32825\\emgu.runtime.windows.msvc.rt.arm64.19.37.32825.nupkg.sha512",
+    "C:\\Users\\ignps\\.nuget\\packages\\emgu.runtime.windows.msvc.rt.x64\\19.37.32825\\emgu.runtime.windows.msvc.rt.x64.19.37.32825.nupkg.sha512",
+    "C:\\Users\\ignps\\.nuget\\packages\\emgu.runtime.windows.msvc.rt.x86\\19.37.32825\\emgu.runtime.windows.msvc.rt.x86.19.37.32825.nupkg.sha512",
+    "C:\\Users\\ignps\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",
+    "C:\\Users\\ignps\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
+    "C:\\Users\\ignps\\.nuget\\packages\\system.drawing.common\\7.0.0\\system.drawing.common.7.0.0.nupkg.sha512",
+    "C:\\Users\\ignps\\.nuget\\packages\\system.drawing.primitives\\4.3.0\\system.drawing.primitives.4.3.0.nupkg.sha512",
+    "C:\\Users\\ignps\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512",
+    "C:\\Users\\ignps\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\ignps\\.nuget\\packages\\system.runtime\\4.3.1\\system.runtime.4.3.1.nupkg.sha512",
+    "C:\\Users\\ignps\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\ignps\\.nuget\\packages\\system.runtime.interopservices.runtimeinformation\\4.3.0\\system.runtime.interopservices.runtimeinformation.4.3.0.nupkg.sha512",
+    "C:\\Users\\ignps\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
+    "C:\\Users\\ignps\\.nuget\\packages\\system.text.json\\7.0.3\\system.text.json.7.0.3.nupkg.sha512",
+    "C:\\Users\\ignps\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
+    "C:\\Users\\ignps\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1605",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Detected package downgrade: Emgu.CV from 4.8.1.5350 to 4.5.1.4349. Reference the package directly from the project to select a different version. \r\n CompVision -> Emgu.CV.runtime.windows 4.8.1.5350 -> Emgu.CV (>= 4.8.1.5350) \r\n CompVision -> Emgu.CV (>= 4.5.1.4349)",
+      "libraryId": "Emgu.CV",
+      "targetGraphs": [
+        ".NETFramework,Version=v4.7.2",
+        ".NETFramework,Version=v4.7.2/win",
+        ".NETFramework,Version=v4.7.2/win-arm64",
+        ".NETFramework,Version=v4.7.2/win-x64",
+        ".NETFramework,Version=v4.7.2/win-x86"
+      ]
+    }
+  ]
+}
