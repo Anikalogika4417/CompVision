@@ -99,7 +99,7 @@ namespace CompVision
                 case "Step 2":
                     image_downloaded.Contur();
                     image_downloaded.PrintContur();
-                    Bitmap image_finish = image_downloaded.Img_grey.ToImage<Bgr, byte>().ToBitmap();
+                    Bitmap image_finish = image_downloaded.Img_color.ToImage<Bgr, byte>().ToBitmap();
                     pictureBox_download.Image = image_finish;
                     buttonModify.Visible = false;
                     buttonDownload.Enabled = true;
