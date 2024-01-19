@@ -10,6 +10,7 @@ using Emgu.CV.Util;
 using Emgu.CV.Structure;
 using System.Windows.Forms;
 using System.Threading;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace CompVision
 {
@@ -71,7 +72,7 @@ namespace CompVision
         public void CutPart()
         {
             img_bin = new Mat();
-            double my_threshold = 150;
+            double my_threshold = 180;
             CvInvoke.Threshold(img_grey, img_bin, my_threshold, 255, ThresholdType.Binary);
         }
 
@@ -79,16 +80,9 @@ namespace CompVision
         {
             if(conturs != null)
             {
-                Image<Bgr, byte> i_img_color = img_color.ToImage<Bgr, byte>();
-                for (int i = 0; i < conturs.Size; i++)
-                {
-                Point[] contursArr = conturs[i].ToArray(); 
-                    foreach (Point p in contursArr)
-                    {
-                        i_img_color[p.X, p.Y] = new Bgr(0, 0, 255);
-                    }
-                }
-                img_color = i_img_color.Mat;
+                //Image<Bgr, byte> i_img_color = img_color.ToImage<Bgr, byte>();
+                CvInvoke.DrawContours(img_color, conturs, -1, new MCvScalar(0, 0, 255), 3); // Draw all contours in green
+                //img_color = i_img_color.Mat;
             }
             else
             {
@@ -99,13 +93,17 @@ namespace CompVision
 
         public void Contur()
         {
+            Image<Bgr, byte> i_img_color = img_color.ToImage<Bgr, byte>();
+
             conturs = new VectorOfVectorOfPoint();
-            CvInvoke.FindContours(img_bin, conturs, null, RetrType.External, ChainApproxMethod.ChainApproxSimple);
+            CvInvoke.FindContours(img_bin, conturs, null, RetrType.List, ChainApproxMethod.ChainApproxSimple);
             WaitCallback callback = new WaitCallback(CvObjectWork);
-            for(int i = 0; i < conturs.Size; i++)
+            for (int i = 0; i < conturs.Size; i++)
             {
                 ThreadPool.QueueUserWorkItem(callback, conturs[i]);
             }
+                            img_color = i_img_color.Mat;
+
         }
 
         void CvObjectWork(Object obj) 
