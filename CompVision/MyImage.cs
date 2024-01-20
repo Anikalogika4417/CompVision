@@ -17,6 +17,7 @@ namespace CompVision
     internal class MyImage
     {
         Mat img_color;
+        Mat img_smooth;
         Mat img_grey;
         Mat img_bin;
         VectorOfVectorOfPoint conturs;
@@ -32,6 +33,12 @@ namespace CompVision
         {
             get => img_color;
             private set => img_color = value;
+        }
+
+        public Mat Img_smooth
+        {
+            get => img_smooth;
+            private set => img_smooth = value;
         }
         public Mat Img_grey
         {
@@ -62,17 +69,26 @@ namespace CompVision
             }
         }
 
+        public void Smooth()
+        {
+            img_smooth = new Mat();
+            int kernelSize = 15;  // Adjust the kernel size as needed
+            CvInvoke.GaussianBlur(img_color, img_smooth, new Size(kernelSize, kernelSize), 0);
+            //CvInvoke.MedianBlur(img_color, img_smooth,kernelSize);
+            //CvInvoke.Blur(img_color, img_smooth, new Size(kernelSize, kernelSize), 0);
+        }
+
         public void MakeGray()
         {
             img_grey = new Mat();
-            CvInvoke.CvtColor(img_color, img_grey, ColorConversion.Bgr2Gray);
+            CvInvoke.CvtColor(img_smooth, img_grey, ColorConversion.Bgr2Gray);
         }
 
 
         public void CutPart()
         {
             img_bin = new Mat();
-            double my_threshold = 180;
+            double my_threshold = 128;
             CvInvoke.Threshold(img_grey, img_bin, my_threshold, 255, ThresholdType.Binary);
         }
 
