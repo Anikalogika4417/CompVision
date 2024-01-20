@@ -84,19 +84,25 @@ namespace CompVision
             switch (buttonModify.Text)
             {
                 case "Modify":
-                    image_downloaded.MakeGray();
+                    image_downloaded.Smooth();
                     buttonDownload.Enabled = false;
-                    Bitmap image_g = image_downloaded.Img_grey.ToImage<Bgr,byte>().ToBitmap();
-                    pictureBox_download.Image = image_g;
+                    Bitmap image_s = image_downloaded.Img_smooth.ToImage<Bgr, byte>().ToBitmap();
+                    pictureBox_download.Image = image_s;
                     buttonModify.Text = "Step 1";
                     break;
                 case "Step 1":
-                    image_downloaded.CutPart();
-                    Bitmap image_b = image_downloaded.Img_bin.ToImage<Bgr, byte>().ToBitmap();
-                    pictureBox_download.Image = image_b;
+                    image_downloaded.MakeGray();
+                    Bitmap image_g = image_downloaded.Img_grey.ToImage<Bgr, byte>().ToBitmap();
+                    pictureBox_download.Image = image_g;
                     buttonModify.Text = "Step 2";
                     break;
                 case "Step 2":
+                    image_downloaded.CutPart();
+                    Bitmap image_b = image_downloaded.Img_bin.ToImage<Bgr, byte>().ToBitmap();
+                    pictureBox_download.Image = image_b;
+                    buttonModify.Text = "Step 3";
+                    break;
+                case "Step 3":
                     image_downloaded.Contur();
                     image_downloaded.PrintContur();
                     Bitmap image_finish = image_downloaded.Img_color.ToImage<Bgr, byte>().ToBitmap();
