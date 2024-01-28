@@ -20,6 +20,7 @@ namespace CompVision
         Mat img_smooth;
         Mat img_grey;
         Mat img_bin;
+        Mat img_bin_simple;
         VectorOfVectorOfPoint conturs;
         List<CvObject> images;
 
@@ -87,9 +88,24 @@ namespace CompVision
 
         public void CutPart()
         {
+            img_bin_simple = new Mat();
             img_bin = new Mat();
             double my_threshold = 128;
-            CvInvoke.Threshold(img_grey, img_bin, my_threshold, 255, ThresholdType.Binary);
+            //CvInvoke.Threshold(img_grey, img_bin, my_threshold, 255, ThresholdType.Binary);
+
+            /*Canny*/
+            //CvInvoke.Threshold(img_grey, img_bin_simple, my_threshold, 255, ThresholdType.Binary);
+            CvInvoke.Canny(img_grey, img_bin, 128, 255);
+
+            /*Sobel*/
+            /*
+            Mat sobelX = new Mat();
+            Mat sobelY = new Mat();
+            CvInvoke.Sobel(img_grey, sobelX, DepthType.Cv8U, 1, 0);
+            CvInvoke.Sobel(img_grey, sobelY, DepthType.Cv8U, 0, 1);
+            CvInvoke.AddWeighted(sobelX, 0.5, sobelY, 0.5, 0, img_bin);
+            CvInvoke.Threshold(img_bin, img_bin, my_threshold, 255, ThresholdType.Binary);
+            */
         }
 
         public void PrintContur()
